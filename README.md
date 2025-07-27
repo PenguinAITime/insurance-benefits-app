@@ -1,97 +1,168 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Insurance Benefits Navigator
 
-# Getting Started
+A modern React Native application designed to help users navigate their insurance benefits with ease. Built with TypeScript, Redux Toolkit, and NativeWind.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+🔗 **Repository**: [https://github.com/PenguinAITime/insurance-benefits-app](https://github.com/PenguinAITime/insurance-benefits-app)
 
-## Step 1: Start Metro
+## 🚀 Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **Find Care**: Search for in-network providers by specialty, location, and insurance plan
+- **Wellness Guide**: Personalized wellness recommendations and preventive care reminders
+- **AI Assistant**: Smart insurance assistant to answer questions about coverage and benefits
+- **Insurance Wallet**: Digital storage for insurance cards and important documents
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🛠️ Tech Stack
 
-```sh
-# Using npm
+- **React Native 0.80.2** - Cross-platform mobile development
+- **TypeScript** - Type-safe development with strict mode
+- **Redux Toolkit & RTK Query** - State management and API calls
+- **React Navigation** - Navigation with bottom tabs
+- **NativeWind** - Tailwind CSS for React Native
+- **React Native Paper** - Material Design 3 components
+
+## 📁 Project Structure
+
+```
+src/
+├── components/       # Reusable UI components
+├── features/        # Feature-based modules
+│   ├── account/     # Account management
+│   ├── ai-assistant/# AI chat assistant
+│   ├── home/        # Home/Find Care screen
+│   └── wellness-guide/ # Wellness recommendations
+├── navigation/      # Navigation configuration
+├── services/        # API services with RTK Query
+├── store/          # Redux store configuration
+├── theme/          # Theme and styling
+├── types/          # TypeScript type definitions
+└── utils/          # Utility functions
+```
+
+## 🚦 Getting Started
+
+### Prerequisites
+
+- Node.js >= 18
+- npm or yarn
+- React Native development environment set up
+- Android Studio / Xcode (for device testing)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/PenguinAITime/insurance-benefits-app.git
+cd insurance-benefits-app
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Install iOS dependencies (macOS only):
+```bash
+cd ios && pod install && cd ..
+```
+
+### Running the App
+
+```bash
+# Start Metro bundler
 npm start
 
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
+# Run on Android
 npm run android
 
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+# Run on iOS
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 🧪 Development Scripts
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```bash
+# Type checking
+npm run typecheck
 
-## Step 3: Modify your app
+# Linting
+npm run lint
+npm run lint:fix
 
-Now that you have successfully run the app, let's make changes!
+# Formatting
+npm run format
+npm run format:check
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+# Run all checks
+npm run check-all
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+# Testing
+npm test
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## 🎨 Design System
 
-## Congratulations! :tada:
+The app uses a vibrant, accessible color palette:
 
-You've successfully run and modified your React Native App. :partying_face:
+- **Primary**: #FFD700 (Vibrant Yellow)
+- **Secondary**: #4FD1C5 (Soft Teal)
+- **Tertiary**: #F687B3 (Gentle Pink)
+- **Text**: #2D3748 (Charcoal)
+- **Background**: #F7FAFC (Soft Gray)
 
-### Now what?
+## 📱 Screens
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+### Home (Find Care)
+- Search for providers by specialty
+- Location-based search
+- Insurance plan selection
+- Plan overview with deductible tracking
 
-# Troubleshooting
+### Wellness Guide
+- Personalized wellness tips
+- Preventive care reminders
+- Health tracking features
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+### AI Assistant
+- Chat interface for insurance questions
+- Coverage explanations
+- Claim assistance
 
-# Learn More
+### My Account
+- Insurance wallet
+- Digital insurance cards
+- Personal information management
 
-To learn more about React Native, take a look at the following resources:
+## 🔧 Configuration
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### Path Aliases
+
+The project uses path aliases for cleaner imports:
+
+```typescript
+import { Button } from '@components/common';
+import { useAppSelector } from '@store/hooks';
+```
+
+### Linting & Formatting
+
+- ESLint with TypeScript and React Native rules
+- Prettier for consistent code formatting
+- Husky pre-commit hooks (currently disabled for Windows compatibility)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- Built with React Native and the amazing open-source community
+- Design inspired by modern healthcare UX patterns
+- Icons from Feather Icons
