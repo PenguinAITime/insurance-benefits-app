@@ -8,13 +8,9 @@ interface InfoCardProps {
 }
 
 export const InfoCard: React.FC<InfoCardProps> = ({ children, className = '', onPress }) => {
-  const content = (
-    <View className={`bg-white rounded-xl mx-4 my-2 p-4 shadow-sm ${className}`}>{children}</View>
+  return (
+    <Pressable onPress={onPress} disabled={!onPress}>
+      <View className={`bg-white rounded-xl mx-4 my-2 p-4 shadow-sm ${className}`}>{children}</View>
+    </Pressable>
   );
-
-  if (onPress) {
-    return <Pressable onPress={onPress}>{content}</Pressable>;
-  }
-
-  return content;
 };
