@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Production
+/build
+/dist
+
+# React Native
+android/
+ios/
+vendor/
+
+# Metro
+.metro-health-check*
+
+# misc
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# Testing
+coverage/
+
+# Temporary files
+*.log
