@@ -73,7 +73,7 @@ export const providersApi = apiSlice.injectEndpoints({
       }),
       providesTags: ['Provider'],
       // Mock implementation for development
-      transformResponse: (response: any, _meta, arg) => {
+      transformResponse: (response: unknown, _meta, arg): SearchProvidersResponse => {
         // In development, return mock data
         if (__DEV__) {
           let filtered = [...mockProviders];
@@ -98,7 +98,7 @@ export const providersApi = apiSlice.injectEndpoints({
           };
         }
 
-        return response;
+        return response as SearchProvidersResponse;
       },
     }),
 
@@ -106,11 +106,12 @@ export const providersApi = apiSlice.injectEndpoints({
       query: (id) => `/providers/${id}`,
       providesTags: (_result, _error, id) => [{ type: 'Provider', id }],
       // Mock implementation
-      transformResponse: (response: any, _meta, arg) => {
+      transformResponse: (response: unknown, _meta, arg): Provider => {
         if (__DEV__) {
-          return mockProviders.find((p) => p.id === arg) || mockProviders[0];
+          const provider = mockProviders.find((p) => p.id === arg);
+          return provider || mockProviders[0]!;
         }
-        return response;
+        return response as Provider;
       },
     }),
   }),

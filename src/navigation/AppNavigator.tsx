@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import Feather from 'react-native-vector-icons/Feather';
 
 import { HomeScreen } from '@features/home/HomeScreen';
@@ -9,11 +10,18 @@ import { WellnessGuideScreen } from '@features/wellness-guide/WellnessGuideScree
 import { AIAssistantScreen } from '@features/ai-assistant/AIAssistantScreen';
 import { AccountScreen } from '@features/account/AccountScreen';
 import { theme } from '@theme/theme';
+import type { Theme } from '@react-navigation/native';
 
 import type { RootTabParamList, RootStackParamList } from './types';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 const Stack = createStackNavigator<RootStackParamList>();
+
+// Tab screen options factory to avoid inline functions
+const createTabScreenOptions = (label: string, iconName: string): BottomTabNavigationOptions => ({
+  tabBarLabel: label,
+  tabBarIcon: ({ color, size }) => <Feather name={iconName} color={color} size={size} />,
+});
 
 function MainTabs() {
   return (
@@ -39,35 +47,22 @@ function MainTabs() {
       <Tab.Screen
         name="Home"
         component={HomeScreen}
-        options={{
-          tabBarLabel: 'Find Care',
-          tabBarIcon: ({ color, size }) => <Feather name="search" color={color} size={size} />,
-        }}
+        options={createTabScreenOptions('Find Care', 'search')}
       />
       <Tab.Screen
         name="WellnessGuide"
         component={WellnessGuideScreen}
-        options={{
-          tabBarLabel: 'Wellness',
-          tabBarIcon: ({ color, size }) => <Feather name="heart" color={color} size={size} />,
-        }}
+        options={createTabScreenOptions('Wellness', 'heart')}
       />
       <Tab.Screen
         name="AIAssistant"
         component={AIAssistantScreen}
-        options={{
-          tabBarLabel: 'Ask AI',
-          tabBarIcon: ({ color, size }) => (
-            <Feather name="message-circle" color={color} size={size} />
-          ),
-        }}
+        options={createTabScreenOptions('Ask AI', 'message-circle')}
       />
       <Tab.Screen
         name="Account"
         component={AccountScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => <Feather name="user" color={color} size={size} />,
-        }}
+        options={createTabScreenOptions('Account', 'user')}
       />
     </Tab.Navigator>
   );
@@ -75,7 +70,7 @@ function MainTabs() {
 
 export function AppNavigator() {
   return (
-    <NavigationContainer theme={theme as any}>
+    <NavigationContainer theme={theme as Theme}>
       <Stack.Navigator>
         <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
       </Stack.Navigator>

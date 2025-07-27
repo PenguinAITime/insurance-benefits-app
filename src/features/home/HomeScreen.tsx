@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableRipple, ProgressBar } from 'react-native-paper';
 import Feather from 'react-native-vector-icons/Feather';
@@ -12,7 +12,6 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
 
   const handleSearchPress = () => {
     // TODO: Navigate to search results
-    console.log('Search pressed');
   };
 
   const deductibleProgress = activePlan
@@ -33,7 +32,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
 
         {/* Search Card */}
         <InfoCard className="mb-4">
-          <TouchableRipple onPress={() => console.log('Specialty search')}>
+          <TouchableRipple
+            onPress={() => {
+              // TODO: Navigate to specialty search
+            }}
+          >
             <View className="flex-row items-center py-4 px-2">
               <Feather name="search" size={22} color="#2D3748" />
               <Text className="flex-1 ml-4 text-gray-500 text-base">
@@ -45,7 +48,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
 
           <View className="h-px bg-lightGray mx-4" />
 
-          <TouchableRipple onPress={() => console.log('Location picker')}>
+          <TouchableRipple
+            onPress={() => {
+              // TODO: Open location picker
+            }}
+          >
             <View className="flex-row items-center py-4 px-2">
               <Feather name="map-pin" size={22} color="#2D3748" />
               <Text className="flex-1 ml-4 text-charcoal text-base">Near me</Text>
@@ -55,7 +62,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
 
           <View className="h-px bg-lightGray mx-4" />
 
-          <TouchableRipple onPress={() => console.log('Plan selector')}>
+          <TouchableRipple
+            onPress={() => {
+              // TODO: Open plan selector
+            }}
+          >
             <View className="flex-row items-center py-4 px-2">
               <Feather name="credit-card" size={22} color="#2D3748" />
               <Text className="flex-1 ml-4 text-charcoal text-base">
@@ -84,7 +95,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
               progress={deductibleProgress}
               color="#4FD1C5"
               className="mt-2 h-2 rounded"
-              style={{ backgroundColor: '#E2E8F0' }}
+              style={styles.progressBarBackground}
             />
           </InfoCard>
 
@@ -98,7 +109,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
               progress={oopProgress}
               color="#4FD1C5"
               className="mt-2 h-2 rounded"
-              style={{ backgroundColor: '#E2E8F0' }}
+              style={styles.progressBarBackground}
             />
           </InfoCard>
 
@@ -118,3 +129,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  progressBarBackground: {
+    backgroundColor: '#E2E8F0',
+  },
+});
